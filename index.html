@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/index.css">
+    <title>运营数据</title>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="t_container">
+        <header class="t_h_bg">
+            <span style="font-size: 35px;color: aliceblue;">2020年休闲零食行业研究报告分析</span>
+        </header>
+        <main class="t_main">
+            <div class="t_box" id="main1"></div>
+            <div class="t_box" id="main2"></div>
+            <div class="t_box" id="main3"></div>
+            <div class="t_box" id="main4"></div>
+            <div class="t_box" id="main5"></div>
+            <div class="t_box" id="main6"></div>
+        </main>
+    </div>
+    <script>
+        var myChart1 = echarts.init(document.getElementById('main1'));
+
+        option1 = {
+            title: {
+                text: '休闲零食细分赛道行业洞察',
+                left: "28%",
+                top: '2%',
+                textAlign: 'center',
+                textStyle: {
+                    color: 'white',
+                    fontWeight: 'bold',
+                    fontSize: 20
+                }
+            },
+            legend: {
+                left: 320,
+                top: 20,
+                data: ['绝味', '周黑鸭', '煌上煌'],
+                textStyle: { //图例文字的样式
+                    color: '#ccc',
+                    fontSize: 12
+                }
+            },
+            tooltip: {
+                confine: true,
+                enterable: true,
+                trigger: 'item',
+            },
+            radar: [{
+                indicator: [{
+                    name: '2014年',
+                    max: 65
+                }, {
+                    name: '2015年',
+                    max: 65
+                }, {
+                    name: '2016年',
+                    max: 65
+                }, {
+                    name: '2017年',
+                    max: 65
+                }, {
+                    name: '2018年',
+                    max: 65
+                }, {
+                    name: '2019年',
+                    max: 65
+                }],
+                center: ['46%', '50%'], // 位置
+                radius: 100, //大小
+                startAngle: 90,
+                splitNumber: 4,
+                shape: 'circle',
+                name: {
+                    formatter: '{value}',
+                    textStyle: {
+                        color: 'aqua' // 文字颜色
+                    }
+                },
+                splitArea: {
+                    areaStyle: {
+                        color: ['rgba(114, 172, 209, 0.1)',
+                            'rgba(114, 172, 209, 0.1)', 'rgba(114, 172, 209, 0.1)',
+                            'rgba(114, 172, 209, 0.1)', 'rgba(114, 172, 209, 0.1)'
+                        ], //圆环颜色
+                        shadowColor: 'aqua', // 圆颜色
+                        shadowBlur: 10
+                    }
+                },
+                axisLine: {
+                    lineStyle: {
+                        color: 'aqua' // 分割线
+                    }
+                },
+                splitLine: {
+                    lineStyle: {
+                        color: 'aqua' //圆线
+                    }
+                }
+            }],
+            series: [{
+                top: 100,
+                // 图形类型为雷达图
+                type: 'radar',
+                // 雷达图的数据
+                itemStyle: {
+                    emphasis: {
+                        // color: 各异,
+                        lineStyle: {
+                            width: 4
+                        }
+                    }
+                },
+                color: ['#5bc2e7', '#6980c5', '#70dfdf', '#f7f1ee', '#3390FF'],
+                data: [{
+                    name: '绝味',
+                    value: [26.8, 28.6, 31.9, 35.8, 34.3, 33.8],
+                    // itemStyle: {
+                    //     normal: {
+                    //         lineStyle: {
+                    //             color: '#b5b5b6'
+                    //         }
+                    //     }
+                    // },
+                }, {
+                    name: '煌上煌',
+                    value: [30.6, 30.6, 33.2, 34.7, 33.4, 37.5],
+                    // itemStyle: {
+                    //     // 雷达图线的颜色
+                    //     color: 'yellow'
+                    // },
+                }, {
+                    name: '周黑鸭',
+                    value: [54.7, 56.5, 62.3, 60.9, 57.5, 56.5],
+                    // itemStyle: {
+                    //     // 雷达图线的颜色
+                    //     color: 'black'
+                    // },
+                }],
+
+
+            }]
+        };
+
+        // 为echarts对象加载数据 
+        myChart1.setOption(option1);
+        var myChart4 = echarts.init(document.getElementById("main4"));
+        var option4 = {
+            title: { //配置标题组件
+                text: '休闲零食细分赛道行业洞察',
+                subtext: '以2014-2019年熟卤制品行业三家净利率为例',
+                left: "28%",
+                top: '2%',
+                textAlign: 'center',
+                textStyle: {
+                    color: 'white',
+                    fontWeight: 'bold',
+                    fontSize: 20
+                }
+            },
+            tooltip: { //配置提示框组件
+                trigger: 'axis',
+
+
+            },
+            legend: {
+                data: ['绝味', '周黑鸭', '煌上煌'],
+                left: 320,
+                top: 10,
+                textStyle: { //图例文字的样式
+                    color: '#ccc',
+                    fontSize: 12
+                }
+            },
+            xAxis: [ //配置X轴坐标轴
+                {
+                    name: '年份',
+                    type: 'category',
+                    data: ['2014年', '2015年', '2016年', '2017年', '2018年', '2019年'],
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white',
+                            width: 1, //这里是为了突出显示加上的
+                        }
+                    },
+                    scale: true,
+                    show: true,
+                    splitLine: {
+                        show: false
+                    }
+                }
+            ],
+            yAxis: [ //配置Y轴坐标轴
+                {
+                    type: 'value',
+                    axisLine: {
+                        lineStyle: {
+                            color: 'white',
+                            width: 1, //这里是为了突出显示加上的
+                        }
+                    },
+                    scale: true,
+                    show: true,
+                    splitLine: {
+                        show: false
+                    }
+                }
+            ],
+            grid: {
+                left: '10%',
+                right: "10%",
+                top: '25%',
+                bottom: '10%',
+                containLabel: true
+            },
+            series: [ //配置数据系color: ['#5bc2e7', '#6980c5', '#70dfdf', '#f7f1ee', '#3390FF'],
+                {
+                    name: '周黑鸭',
+                    type: 'line', //设置指定显示为折线
+                    data: [22.7, 22.7, 25.4, 23.4, 16.8, 12.8],
+                    smooth: true,
+                    color: ['#5bc2e7'],
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'insideRight',
+                            formatter: '{c}%'
+                        }
+                    },
+                    lineStyle: {
+                        shadowColor: "#5cfbff", //透明的颜色
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1, //透明度
+                        shadowBlur: 8, //阴影大小
+                        type: "solid", //实线
+                        width: 2,
+                    },
+
+                }, {
+                    name: '煌上煌',
+                    type: 'line', //设置指定显示为折线
+                    data: [9.9, 5.3, 7.3, 9.5, 9.1, 10.4],
+                    smooth: true,
+                    color: ['#6980c5'],
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'insideRight',
+                            formatter: '{c}%'
+                        }
+                    },
+                    lineStyle: {
+                        shadowColor: "#5cfbff", //透明的颜色
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1, //透明度
+                        shadowBlur: 8, //阴影大小
+                        type: "solid", //实线
+                        width: 2,
+                    },
+
+                }, {
+                    name: '绝味',
+                    type: 'line', //设置指定显示为折线
+                    data: [9.0, 10.3, 11.6, 13.0, 14.4, 15.3],
+                    smooth: true,
+                    color: ['#70dfdf'],
+                    label: {
+                        normal: {
+                            show: true,
+                            position: 'insideRight',
+                            formatter: '{c}%'
+                        }
+                    },
+                    lineStyle: {
+                        shadowColor: "#5cfbff", //透明的颜色
+                        shadowOffsetX: 0,
+                        shadowOffsetY: 0,
+                        opacity: 1, //透明度
+                        shadowBlur: 8, //阴影大小
+                        type: "solid", //实线
+                        width: 2,
+                    },
+
+                },
+            ]
+        };
+        myChart4.setOption(option4);
+        echarts.connect([myChart1, myChart4]);
+        // echarts.connect([myChart4, myChart1]);
+        //基于准备好的dom,初始化ECharts图表
+        var myChart2 = echarts.init(document.getElementById("main2"));
+        var option2 = { //指定第2个图表的配置项和数据
+            title: {
+                text: '2012-2020年中国休闲零食市场规模及预测',
+                left: "35%",
+                top: '5%',
+                textAlign: 'center',
+                textStyle: {
+                    color: 'white',
+                    fontWeight: 'bold',
+                    fontSize: 20
+                }
+            },
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: { //设置坐标轴指示器，坐标轴触发有效
+                    type: 'shadow' //设置坐标轴默认为直线，可选为:'line'|'shadow'
+                }
+            },
+            legend: {
+                left: 450,
+                top: 15,
+                data: ['市场规模', '年复合增长率'],
+                textStyle: { //图例文字的样式
+                    color: '#ccc',
+                    fontSize: 12
+                }
+            },
+            toolbox: {
+                show: true,
+                orient: 'vertical',
+                x: 'right',
+                y: 'center',
+            },
+            calculable: true,
+            xAxis: [{
+                type: 'category',
+                data: ['2102', '2013', '2014', '2015', '2016', '2017', '2018', '2019E', '2020E'],
+                axisLine: {
+                    lineStyle: {
+                        color: 'white',
+                        width: 1, //这里是为了突出显示加上的
+                    }
+                }
+            }],
+            yAxis: [{
+                type: 'value',
+                axisLine: {
+                    lineStyle: {
+                        color: 'white',
+                        width: 1, //这里是为了突出显示加上的
+                    }
+                }
+
+            }],
+            series: [{
+                name: '市场规模',
+                type: 'bar',
+                stack: '12', //设置堆积效果
+                color: ['#70dfdf', '#f7f1ee', '#3390FF'],
+                data: [3625, 3997, 4211, 4467, 4657, 4849, 5024, 5539, 6000],
+                // itemStyle: {
+                //     normal: {
+                //         color: '#5bc2e7',
+                //     }
+                // },
+            }, {
+                name: '年复合增长率',
+                type: 'line',
+                left: 100,
+                top: 10,
+                color: 'white',
+                stack: '12',
+                label: {
+                    normal: {
+                        show: true,
+                        position: 'insideRight',
+                        formatter: '{c}%'
+                    }
+                },
+                lineStyle: {
+                    shadowColor: "#5cfbff", //透明的颜色
+                    shadowOffsetX: 0,
+                    shadowOffsetY: 0,
+                    opacity: 1, //透明度
+                    shadowBlur: 8, //阴影大小
+                    type: "solid", //实线
+                    width: 2,
+                },
+
+                data: [10.3, 5.4, 6.1, 4.3, 4.1, 3.6, 10.3, 8.3, 9.2],
+                smooth: true
+            }, ]
+        };;
+        myChart2.setOption(option2); //为myChart2对象加载数据
+        var myChart3 = echarts.init(document.getElementById("main3"));
+        //myChart.setOption({
+        var data1 = []
+        myChart3.showLoading(),
+            $.get("chab.json", function(data) {
+                console.log("===" + JSON.stringify(data.data_pie))
+                    // data1 = JSON.parse(data),
+                data1 = data.data_pie,
+                    myChart3.setOption({
+                        //color: ['red', 'bule', 'LimeGreen', 'Teal', 'Purple'],
+                        tooltip: { //配置提示框组件
+                            trigger: 'item',
+                            formatter: "{a} <br/>{b} : {c} ({d}%)"
+                        },
+                        title: { //配置标题组件
+                            text: '2018年休闲零食主要渠道销售额占比情况', //设置主标题
+                            subtext: '', //设置次标题
+                            left: "40%",
+                            top: '2%',
+                            textAlign: 'center',
+                            textStyle: {
+                                color: 'white',
+                                fontWeight: 'bold',
+                                fontSize: 20
+                            }
+                        },
+                        legend: { //配置图例组件
+                            orient: 'vertical', //设置垂直排列
+                            left: 100, //设置图例左边距
+                            top: 50, //设置图例顶边距
+                            data: ['电商平台', '个体门店', '连锁专卖店', '超市卖场'],
+                            textStyle: { //图例文字的样式
+                                color: '#ccc',
+                                fontSize: 12
+                            }
+                        },
+                        toolbox: { //配置工具箱组件
+                            show: true, //设置工具箱组件是否显示
+                            left: 444, //设置工具箱左边距
+                            top: 28, //设置工具箱顶边距
+                        },
+                        calculable: true,
+                        series: [ //配置数据系列组件
+                            {
+                                name: '销售额',
+                                type: 'pie',
+                                radius: '66%', //设置半径
+                                //radius: ['45%', '75%'],
+                                center: ['58%', '55%'], //设置圆心
+                                //clockWise: true,
+                                color: ['#5bc2e7', '#6980c5', '#70dfdf', '#f7f1ee', '#3390FF'],
+                                data: data1
+                                    //backgroundColor:'rgba(128,128,128,0.1)',
+                            }
+                        ]
+                    })
+            });
+        //使用刚指定的配置项和数据显示图表
+
+        //myChart3.hideLoading();
+        myChart3.on('click', function(params) {
+            var yt = alert("鼠标点击事件,您刚才单击了:" + params.name);
+            window.open('http://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
+        });
+        setTimeout(function() {
+            myChart3.hideLoading();
+        }, 2000);
+
+        // myChart3.hideLoading();
+
+
+        var myChart5 = echarts.init(document.getElementById("main5"));
+        var option5 = {
+            title: { //配置标题组件
+                text: '休闲零食行业未来发展趋势', //设置主标题
+                subtext: '健康诉求进一步助推“高端化”零食抢占市场', //设置次标题
+                left: "28%",
+                top: '2%',
+                textAlign: 'center',
+                textStyle: {
+                    color: 'white',
+                    fontWeight: 'bold',
+                    fontSize: 20
+                }
+            },
+            series: [{
+                type: 'treemap',
+                top: 60,
+                color: ['#5bc2e7', '#6980c5', '#70dfdf', '#f7f1ee', '#3390FF'],
+                data: [{
+                    name: '主题1',
+                    value: 10,
+                    children: [{
+                        name: '年轻化',
+                        value: 4
+                    }, {
+                        name: '代餐化',
+                        value: 6
+                    }]
+                }, {
+                    name: '主题2',
+                    value: 20,
+                    children: [{
+                        name: 'nodeBa',
+                        value: 20,
+                        children: [{
+                            name: '健康化',
+                            value: 20,
+                        }, {
+                            name: '高端定制化',
+                            value: 20
+                        }]
+                    }]
+                }]
+            }]
+        };
+        myChart5.setOption(option5);
+
+        var myChart6 = echarts.init(document.getElementById("main6"));
+        var option6 = {
+            title: {
+                text: '疫情下休闲零食行业市场分析',
+                subtext: '2021Q1休闲零食行业各品类成交金额（亿元）',
+                left: "32%",
+                top: '2%',
+                textAlign: 'center',
+                textStyle: {
+                    color: 'white',
+                    fontWeight: 'bold',
+                    fontSize: 20
+                }
+            },
+            toolbox: {
+                orient: 'vertical',
+                top: 'center',
+
+            },
+            legend: {
+                orient: 'vertical',
+                left: 85,
+                top: 75,
+                textStyle: { //图例文字的样式
+                    color: '#ccc',
+                    fontSize: 12
+                },
+                data: ['坚果炒货', '糕点/点心', '饼干/膨化', '肉干/卤味', '蜜饯/果干', '糖果/果冻/布丁', '巧克力', '海味即食', '豆制品/蔬菜干', '奶酪/乳制品', '其他']
+            },
+            series: [{
+                name: '疫情下休闲零食行业市场分析',
+                type: 'funnel',
+                width: '55%',
+                height: '',
+                left: '30%',
+                top: '20%',
+                label: {
+                    position: 'right'
+                },
+                color: ['#5bc2e7', '#6980c5', '#70dfdf', '#f7f1ee', '#3390FF'],
+                data: [{
+                    value: 50.29,
+                    name: '坚果炒货'
+                }, {
+                    value: 32.57,
+                    name: '糕点/点心'
+                }, {
+                    value: 31.72,
+                    name: '饼干/膨化'
+                }, {
+                    value: 25.23,
+                    name: '肉干/卤味'
+                }, {
+                    value: 17.63,
+                    name: '蜜饯/果干'
+                }, {
+                    value: 12.1,
+                    name: '糖果/果冻/布丁'
+                }, {
+                    value: 7.76,
+                    name: '巧克力'
+                }, {
+                    value: 7.38,
+                    name: '海味即食'
+                }, {
+                    value: 6.62,
+                    name: '豆制品/蔬菜干'
+                }, {
+                    value: 1.33,
+                    name: '奶酪/乳制品'
+                }, {
+                    value: 0.48,
+                    name: '其他'
+                }]
+            }]
+        };
+        myChart6.setOption(option6);
+    </script>
+</body>
+
+</html>
